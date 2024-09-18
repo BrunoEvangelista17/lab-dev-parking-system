@@ -93,4 +93,15 @@
 
 - Spring Boot
 - React
+- Mantine ( Dá Ponto Extra ) 
 - Vercel
+
+## Diagrama de Classes UML
+
+![Diagrama de Classes UML.jpg](Docs/Images/UMLClassDiagram.jpg)
+
+## DIagrama de Casos de Uso
+
+![Package Diagram.png]("Docs/Images/Package Diagram.png")
+
+## Diagrama de Pacotes

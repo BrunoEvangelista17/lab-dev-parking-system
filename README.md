@@ -13,7 +13,7 @@
 **Eu quero** me cadastrar no sistema,
 **Para** que eu possa fazer pedidos de aluguel de automóveis.
 
-### Critérios de Aceitação:
+*Critérios de Aceitação:*
 
 - O cliente deve fornecer nome completo, e-mail, telefone e CPF para o cadastro.
 - O sistema deve enviar um e-mail de confirmação com um link para ativar a conta.

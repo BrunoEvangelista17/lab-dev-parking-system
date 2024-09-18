@@ -102,6 +102,7 @@
 
 ## DIagrama de Casos de Uso
 
-![Package Diagram.png]("Docs/Images/Package Diagram.png")
 
 ## Diagrama de Pacotes
+
+![Package Diagram.png]("Docs/Images/Package_Diagram.png")

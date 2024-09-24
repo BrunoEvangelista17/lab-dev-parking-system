@@ -1,4 +1,4 @@
-package br.com.api.aluguel.Repository;
+package br.com.api.aluguel.Model.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

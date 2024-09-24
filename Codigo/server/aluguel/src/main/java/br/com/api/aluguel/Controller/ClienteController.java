@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
-import br.com.api.aluguel.Repository.ClienteRepository;
-import br.com.api.aluguel.Repository.UserRepository;
+import br.com.api.aluguel.Model.Repository.ClienteRepository;
+import br.com.api.aluguel.Model.Repository.UserRepository;
 import br.com.api.aluguel.service.Cliente;
 import br.com.api.aluguel.service.User;
 
@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/clientes")
 public class ClienteController {
 
-   @Autowired
+    @Autowired
     private ClienteRepository clienteRepository;
 
     @Autowired

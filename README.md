@@ -89,12 +89,6 @@
 - O agente deve poder modificar detalhes do pedido, como status ou datas.
 - O sistema deve atualizar automaticamente o status do pedido e enviar notificações por e-mail ao cliente.
 
-## Alunos
-
-- Ana Flávia
-- Bruno Evangelista
-- David Dias Pinto
-
 ## Tecnologias Utilizadas
 
 - Spring Boot
@@ -112,4 +106,5 @@
 ## Diagrama de Pacotes
 
 ![Package Diagram.png](Docs/Images/PackageDiagram.png)
-'
+=========
+>>>>>>>>> Temporary merge branch 2

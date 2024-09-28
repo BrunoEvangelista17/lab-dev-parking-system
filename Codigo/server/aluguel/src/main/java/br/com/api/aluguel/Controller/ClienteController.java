@@ -1,14 +1,13 @@
-package br.com.api.aluguel.Controller;
+package br.com.api.aluguel.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
-import br.com.api.aluguel.Model.Repository.ClienteRepository;
-import br.com.api.aluguel.Model.Repository.UserRepository;
-import br.com.api.aluguel.service.Cliente;
-import br.com.api.aluguel.service.User;
-
+import br.com.api.aluguel.model.ClienteEntity;
+import br.com.api.aluguel.model.UserEntity;
+import br.com.api.aluguel.repository.ClienteRepository;
+import br.com.api.aluguel.repository.UserRepository;
 
 import java.util.List;
 
@@ -23,12 +22,12 @@ public class ClienteController {
     private UserRepository userRepository;
 
     @PostMapping("/add")
-    public Cliente addCliente(@RequestBody Cliente cliente) {
+    public ClienteEntity addCliente(@RequestBody ClienteEntity cliente) {
         if (cliente.getUser() == null || cliente.getUser().getId() == null) {
             throw new IllegalArgumentException("O campo 'user' não pode ser nulo ou sem ID");
         }
 
-        Optional<User> userOpt = userRepository.findById(cliente.getUser().getId());
+        Optional<UserEntity> userOpt = userRepository.findById(cliente.getUser().getId());
         
         if (!userOpt.isPresent()) {
             throw new IllegalArgumentException("Usuário com ID " + cliente.getUser().getId() + " não encontrado");
@@ -40,7 +39,7 @@ public class ClienteController {
 
 
     @GetMapping("/all")
-    public List<Cliente> getAllClientes() {
+    public List<ClienteEntity> getAllClientes() {
         return clienteRepository.findAll();
     }
 }

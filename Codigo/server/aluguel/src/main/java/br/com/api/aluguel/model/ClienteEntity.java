@@ -1,10 +1,10 @@
-package br.com.api.aluguel.service;
+package br.com.api.aluguel.model;
 
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Cliente")
-public class Cliente {
+public class ClienteEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +27,7 @@ public class Cliente {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private UserEntity user;
 
     // Getters e Setters
     public Long getId() {
@@ -86,11 +86,11 @@ public class Cliente {
         this.empregador = empregador;
     }
 
-    public User getUser() {
+    public UserEntity getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 }

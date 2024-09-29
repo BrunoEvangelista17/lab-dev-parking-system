@@ -1,46 +1,43 @@
 package br.com.api.aluguel.controller;
 
+import br.com.api.aluguel.model.ClienteEntity;
+import br.com.api.aluguel.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import java.util.Optional;
-
-import br.com.api.aluguel.model.ClienteEntity;
-import br.com.api.aluguel.model.UserEntity;
-import br.com.api.aluguel.repository.ClienteRepository;
-import br.com.api.aluguel.repository.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("/Cliente") // Rota: "http://localhost:8080/Cliente"
 public class ClienteController {
 
     @Autowired
-    private ClienteRepository clienteRepository;
+    private ClienteService clienteService;
 
-    @Autowired
-    private UserRepository userRepository;
+    @GetMapping
+    public List<ClienteEntity> listar() {
+        return (List<ClienteEntity>) clienteService.listar();
+    }
 
-    @PostMapping("/add")
-    public ClienteEntity addCliente(@RequestBody ClienteEntity cliente) {
-        if (cliente.getUser() == null || cliente.getUser().getId() == null) {
-            throw new IllegalArgumentException("O campo 'user' não pode ser nulo ou sem ID");
-        }
+    @GetMapping("/{id}")
+    public Optional<ClienteEntity> buscarPorId(@PathVariable Long id) {
+        return clienteService.buscarPorId(id);
+    }
 
-        Optional<UserEntity> userOpt = userRepository.findById(cliente.getUser().getId());
-        
-        if (!userOpt.isPresent()) {
-            throw new IllegalArgumentException("Usuário com ID " + cliente.getUser().getId() + " não encontrado");
-        }
+    @PostMapping
+    public ClienteEntity criar(@RequestBody ClienteEntity cliente) {
+        return clienteService.salvar(cliente);
+    }
 
-        cliente.setUser(userOpt.get());
-        return clienteRepository.save(cliente);
-}
+    @PutMapping("/{id}")
+    public ClienteEntity atualizar(@PathVariable Long id, @RequestBody ClienteEntity cliente) {
+        cliente.setId(id);
+        return clienteService.salvar(cliente);
+    }
 
-
-    @GetMapping("/all")
-    public List<ClienteEntity> getAllClientes() {
-        return clienteRepository.findAll();
+    @DeleteMapping("/{id}")
+    public void deletar(@PathVariable Long id) {
+        clienteService.deletar(id);
     }
 }
-

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "\"User\"")  // Nome da tabela com aspas duplas para manter a maiúscula
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo")
 public class UserEntity {
 
     @Id

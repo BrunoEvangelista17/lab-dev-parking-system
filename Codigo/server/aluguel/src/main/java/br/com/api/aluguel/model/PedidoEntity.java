@@ -17,7 +17,7 @@ public class PedidoEntity {
     @JoinColumn(name = "agente_id", referencedColumnName = "id")
     private AgenteEntity agente;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "veiculo_id", referencedColumnName = "id")
     private VeiculoEntity veiculo;
 

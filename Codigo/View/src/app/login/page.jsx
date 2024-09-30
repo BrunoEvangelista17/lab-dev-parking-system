@@ -1,7 +1,7 @@
-
-"use strict";
+"use client";
 import { TextInput, Button, Box, Title } from "@mantine/core";
 import { useState } from "react";
+import { Link } from "react-router-dom"; // Adicionando a importação do Link
 
 import styleLogin from './style.css';
 
@@ -55,5 +55,3 @@ export default function LoginPage() {
         </Box>
     );
 }
-
-

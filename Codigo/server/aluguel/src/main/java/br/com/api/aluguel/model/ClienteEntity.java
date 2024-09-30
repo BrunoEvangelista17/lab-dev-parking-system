@@ -1,33 +1,49 @@
-package br.com.api.aluguel.service;
+package br.com.api.aluguel.model;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Cliente")
-public class Cliente {
+public class ClienteEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private UserEntity user;
+
+    @Column(name = "rg")
     private String rg;
 
-    @Column(nullable = false)
+    @Column(name = "cpf")
     private String cpf;
 
-    @Column(nullable = false)
+    @Column(name = "nome")
     private String nome;
 
-    @Column(nullable = false)
+    @Column(name = "endereco")
     private String endereco;
 
+    @Column(name = "profissao")
     private String profissao;
+
+    @Column(name = "empregador")
     private String empregador;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    // Construtor padrão
+    public ClienteEntity() {}
+
+    // Construtor com parâmetros
+    public ClienteEntity(UserEntity user, String rg, String cpf, String nome, String endereco, String profissao, String empregador) {
+        this.user = user;
+        this.rg = rg;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.profissao = profissao;
+        this.empregador = empregador;
+    }
 
     // Getters e Setters
     public Long getId() {
@@ -36,6 +52,14 @@ public class Cliente {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 
     public String getRg() {
@@ -84,13 +108,5 @@ public class Cliente {
 
     public void setEmpregador(String empregador) {
         this.empregador = empregador;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

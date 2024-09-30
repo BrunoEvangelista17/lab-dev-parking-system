@@ -1,20 +1,31 @@
-package br.com.api.aluguel.service;
+package br.com.api.aluguel.model;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "\"User\"")  // Nome com aspas duplas devido à maiúscula no nome da tabela
-public class User {
+@Table(name = "\"User\"")  // Nome da tabela com aspas duplas para manter a maiúscula
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo")
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "login")
     private String login;
 
-    @Column(nullable = false)
+    @Column(name = "senha")
     private String senha;
+
+    // Construtor padrão
+    public UserEntity(){}
+
+    // Construtor com parâmetros
+    public UserEntity(String login, String senha){
+        this.login = login;
+        this.senha = senha;
+    }
 
     // Getters e Setters
     public Long getId() {

@@ -1,7 +1,7 @@
 "use client";
 import { TextInput, Button, Box, Title } from "@mantine/core";
 import { useState } from "react";
-import { Link } from "react-router-dom"; // Adicionando a importação do Link
+//import { Link } from "react-router-dom"; // Adicionando a importação do Link
 
 import styleLogin from './style.css';
 
@@ -49,7 +49,7 @@ export default function LoginPage() {
             </form>
             <p>Não tem uma conta?
                 <strong>
-                    <Link to="/cadastro_cliente"> Registre-se</Link>
+                    {/*<Link to="/cadastro_cliente"> Registre-se</Link>*/}
                 </strong>
             </p>
         </Box>

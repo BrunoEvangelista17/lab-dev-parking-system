@@ -12,12 +12,16 @@ public class InvestimentoEntity {
     @Column(name = "nome")
     private String nome;
 
+    @Column(name = "valor")
+    private int valor; // Novo atributo valor
+
     // Construtor padrão
     public InvestimentoEntity() {}
 
     // Construtor com parâmetros
-    public InvestimentoEntity(String nome) {
+    public InvestimentoEntity(String nome, int valor) {
         this.nome = nome;
+        this.valor = valor; // Inicializando valor no construtor
     }
 
     // Getters e Setters
@@ -35,5 +39,13 @@ public class InvestimentoEntity {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
     }
 }

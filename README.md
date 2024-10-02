@@ -100,11 +100,16 @@
 
 ![Diagrama de Classes UML.jpg](Docs/Images/UMLClassDiagram.jpg)
 
-## DIagrama de Casos de Uso
-
 
 ## Diagrama de Pacotes
 
 ![Package Diagram.png](Docs/Images/PackageDiagram.png)
+
+
+## Diagrama de Componentes
+![ComponentDiagram.png](Docs/Images/ComponentDiagram.png)
+
 =========
 >>>>>>>>> Temporary merge branch 2
+
+

@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import { Card, Container, Title, TextInput, Button, Group, List, Text, NumberInput, Modal, Grid,  Badge} from '@mantine/core';
 

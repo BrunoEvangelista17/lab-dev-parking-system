@@ -1,6 +1,6 @@
 package br.com.api.aluguel.controller;
 
-import br.com.api.aluguel.model.UserEntity;
+import br.com.api.aluguel.model.User;
 import br.com.api.aluguel.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,22 +17,22 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public List<UserEntity> listar() {
-        return (List<UserEntity>) userService.listar();
+    public List<User> listar() {
+        return (List<User>) userService.listar();
     }
 
     @GetMapping("/{id}")
-    public Optional<UserEntity> buscarPorId(@PathVariable Long id) {
+    public Optional<User> buscarPorId(@PathVariable Long id) {
         return userService.buscarPorId(id);
     }
 
     @PostMapping
-    public UserEntity criar(@RequestBody UserEntity user) {
+    public User criar(@RequestBody User user) {
         return userService.salvar(user);
     }
 
     @PutMapping("/{id}")
-    public UserEntity atualizar(@PathVariable Long id, @RequestBody UserEntity user) {
+    public User atualizar(@PathVariable Long id, @RequestBody User user) {
         user.setId(id);
         return userService.salvar(user);
     }

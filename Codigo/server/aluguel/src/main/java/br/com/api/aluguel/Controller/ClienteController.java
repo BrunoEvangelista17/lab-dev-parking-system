@@ -1,6 +1,6 @@
 package br.com.api.aluguel.controller;
 
-import br.com.api.aluguel.model.ClienteEntity;
+import br.com.api.aluguel.model.Cliente;
 import br.com.api.aluguel.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,22 +16,22 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @GetMapping
-    public List<ClienteEntity> listar() {
-        return (List<ClienteEntity>) clienteService.listar();
+    public List<Cliente> listar() {
+        return (List<Cliente>) clienteService.listar();
     }
 
     @GetMapping("/{id}")
-    public Optional<ClienteEntity> buscarPorId(@PathVariable Long id) {
+    public Optional<Cliente> buscarPorId(@PathVariable Long id) {
         return clienteService.buscarPorId(id);
     }
 
     @PostMapping
-    public ClienteEntity criar(@RequestBody ClienteEntity cliente) {
+    public Cliente criar(@RequestBody Cliente cliente) {
         return clienteService.salvar(cliente);
     }
 
     @PutMapping("/{id}")
-    public ClienteEntity atualizar(@PathVariable Long id, @RequestBody ClienteEntity cliente) {
+    public Cliente atualizar(@PathVariable Long id, @RequestBody Cliente cliente) {
         cliente.setId(id);
         return clienteService.salvar(cliente);
     }

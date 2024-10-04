@@ -2,8 +2,8 @@ package br.com.api.aluguel.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.api.aluguel.model.ClienteEntity;
+import br.com.api.aluguel.model.Cliente;
 
 
-public interface ClienteRepository extends JpaRepository<ClienteEntity, Long> {
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 }

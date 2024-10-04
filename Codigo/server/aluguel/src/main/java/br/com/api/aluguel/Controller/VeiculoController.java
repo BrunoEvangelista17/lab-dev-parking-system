@@ -1,6 +1,6 @@
 package br.com.api.aluguel.controller;
 
-import br.com.api.aluguel.model.VeiculoEntity;
+import br.com.api.aluguel.model.Veiculo;
 import br.com.api.aluguel.service.VeiculoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,22 +16,22 @@ public class VeiculoController {
     private VeiculoService veiculoService;
 
     @GetMapping
-    public List<VeiculoEntity> listar() {
-        return (List<VeiculoEntity>) veiculoService.listar();
+    public List<Veiculo> listar() {
+        return (List<Veiculo>) veiculoService.listar();
     }
 
     @GetMapping("/{id}")
-    public Optional<VeiculoEntity> buscarPorId(@PathVariable Long id) {
+    public Optional<Veiculo> buscarPorId(@PathVariable Long id) {
         return veiculoService.buscarPorId(id);
     }
 
     @PostMapping
-    public VeiculoEntity criar(@RequestBody VeiculoEntity veiculo) {
+    public Veiculo criar(@RequestBody Veiculo veiculo) {
         return veiculoService.salvar(veiculo);
     }
 
     @PutMapping("/{id}")
-    public VeiculoEntity atualizar(@PathVariable Long id, @RequestBody VeiculoEntity veiculo) {
+    public Veiculo atualizar(@PathVariable Long id, @RequestBody Veiculo veiculo) {
         veiculo.setId(id);
         return veiculoService.salvar(veiculo);
     }

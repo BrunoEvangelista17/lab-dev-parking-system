@@ -2,7 +2,7 @@ package br.com.api.aluguel.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import br.com.api.aluguel.model.ContratoEntity;
+import br.com.api.aluguel.model.Contrato;
 import br.com.api.aluguel.repository.ContratoRepository;
 
 import java.util.Optional;
@@ -13,15 +13,15 @@ public class ContratoService {
     @Autowired
     private ContratoRepository cr;
 
-    public Iterable<ContratoEntity> listar() {
+    public Iterable<Contrato> listar() {
         return cr.findAll();
     }
 
-    public Optional<ContratoEntity> buscarPorId(Long id) {
+    public Optional<Contrato> buscarPorId(Long id) {
         return cr.findById(id);
     }
 
-    public ContratoEntity salvar(ContratoEntity contrato) {
+    public Contrato salvar(Contrato contrato) {
         return cr.save(contrato);
     }
 

@@ -3,7 +3,7 @@ package br.com.api.aluguel.model;
 import jakarta.persistence.*;
 
 @Entity
-public class InvestimentoEntity {
+public class Investimento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,10 +16,10 @@ public class InvestimentoEntity {
     private int valor; // Novo atributo valor
 
     // Construtor padrão
-    public InvestimentoEntity() {}
+    public Investimento() {}
 
     // Construtor com parâmetros
-    public InvestimentoEntity(String nome, int valor) {
+    public Investimento(String nome, int valor) {
         this.nome = nome;
         this.valor = valor; // Inicializando valor no construtor
     }

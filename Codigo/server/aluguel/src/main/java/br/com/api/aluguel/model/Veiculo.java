@@ -3,7 +3,7 @@ package br.com.api.aluguel.model;
 import jakarta.persistence.*;
 
 @Entity
-public class VeiculoEntity {
+public class Veiculo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,10 +25,10 @@ public class VeiculoEntity {
     private String marca;
 
     // Construtor padrão
-    public VeiculoEntity() {}
+    public Veiculo() {}
 
     // Construtor com parâmetros
-    public VeiculoEntity(String matricula, String modelo, String placa, String ano, String marca) {
+    public Veiculo(String matricula, String modelo, String placa, String ano, String marca) {
         this.matricula = matricula;
         this.modelo = modelo;
         this.placa = placa;

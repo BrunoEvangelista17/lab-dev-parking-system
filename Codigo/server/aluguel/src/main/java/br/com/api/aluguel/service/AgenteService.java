@@ -2,7 +2,7 @@ package br.com.api.aluguel.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import br.com.api.aluguel.model.AgenteEntity;
+import br.com.api.aluguel.model.Agente;
 import br.com.api.aluguel.repository.AgenteRepository;
 
 import java.util.Optional;
@@ -13,15 +13,15 @@ public class AgenteService {
     @Autowired
     private AgenteRepository as;
 
-     public Iterable<AgenteEntity> listar(){
+     public Iterable<Agente> listar(){
         return as.findAll();
     }
 
-    public Optional<AgenteEntity> buscarPorId(Long id) {
+    public Optional<Agente> buscarPorId(Long id) {
         return as.findById(id);
     }
 
-    public AgenteEntity salvar(AgenteEntity cliente) {
+    public Agente salvar(Agente cliente) {
         return as.save(cliente);
     }
 

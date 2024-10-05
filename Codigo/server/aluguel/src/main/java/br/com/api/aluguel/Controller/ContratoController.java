@@ -1,6 +1,6 @@
 package br.com.api.aluguel.controller;
 
-import br.com.api.aluguel.model.ContratoEntity;
+import br.com.api.aluguel.model.Contrato;
 import br.com.api.aluguel.service.ContratoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,22 +16,22 @@ public class ContratoController {
     private ContratoService contratoService;
 
     @GetMapping
-    public List<ContratoEntity> listar() {
-        return (List<ContratoEntity>) contratoService.listar();
+    public List<Contrato> listar() {
+        return (List<Contrato>) contratoService.listar();
     }
 
     @GetMapping("/{id}")
-    public Optional<ContratoEntity> buscarPorId(@PathVariable Long id) {
+    public Optional<Contrato> buscarPorId(@PathVariable Long id) {
         return contratoService.buscarPorId(id);
     }
 
     @PostMapping
-    public ContratoEntity criar(@RequestBody ContratoEntity contrato) {
+    public Contrato criar(@RequestBody Contrato contrato) {
         return contratoService.salvar(contrato);
     }
 
     @PutMapping("/{id}")
-    public ContratoEntity atualizar(@PathVariable Long id, @RequestBody ContratoEntity contrato) {
+    public Contrato atualizar(@PathVariable Long id, @RequestBody Contrato contrato) {
         contrato.setId(id);
         return contratoService.salvar(contrato);
     }

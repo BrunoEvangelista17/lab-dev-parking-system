@@ -1,6 +1,6 @@
 package br.com.api.aluguel.controller;
 
-import br.com.api.aluguel.model.InvestimentoEntity;
+import br.com.api.aluguel.model.Investimento;
 import br.com.api.aluguel.service.InvestimentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,22 +16,22 @@ public class InvestimentoController {
     private InvestimentoService investimentoService;
 
     @GetMapping
-    public List<InvestimentoEntity> listar() {
-        return (List<InvestimentoEntity>) investimentoService.listar();
+    public List<Investimento> listar() {
+        return (List<Investimento>) investimentoService.listar();
     }
 
     @GetMapping("/{id}")
-    public Optional<InvestimentoEntity> buscarPorId(@PathVariable Long id) {
+    public Optional<Investimento> buscarPorId(@PathVariable Long id) {
         return investimentoService.buscarPorId(id);
     }
 
     @PostMapping
-    public InvestimentoEntity criar(@RequestBody InvestimentoEntity investimento) {
+    public Investimento criar(@RequestBody Investimento investimento) {
         return investimentoService.salvar(investimento);
     }
 
     @PutMapping("/{id}")
-    public InvestimentoEntity atualizar(@PathVariable Long id, @RequestBody InvestimentoEntity investimento) {
+    public Investimento atualizar(@PathVariable Long id, @RequestBody Investimento investimento) {
         investimento.setId(id);
         return investimentoService.salvar(investimento);
     }

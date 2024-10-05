@@ -3,7 +3,7 @@ package br.com.api.aluguel.model;
 import jakarta.persistence.*;
 
 @Entity
-public class ContratoEntity {
+public class Contrato {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,7 +11,7 @@ public class ContratoEntity {
 
     @ManyToOne
     @JoinColumn(name = "pedido_id", referencedColumnName = "id")
-    private PedidoEntity pedido;
+    private Pedido pedido;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo")
@@ -27,10 +27,10 @@ public class ContratoEntity {
     private int duration;
 
     // Construtor padrão
-    public ContratoEntity() {}
+    public Contrato() {}
 
     // Construtor com parâmetros
-    public ContratoEntity(PedidoEntity pedido, ContratoType tipo, int valor, boolean credito, int duration) {
+    public Contrato(Pedido pedido, ContratoType tipo, int valor, boolean credito, int duration) {
         this.pedido = pedido;
         this.tipo = tipo;
         this.valor = valor;

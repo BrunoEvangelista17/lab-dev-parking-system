@@ -1,6 +1,6 @@
 package br.com.api.aluguel.controller;
 
-import br.com.api.aluguel.model.PedidoEntity;
+import br.com.api.aluguel.model.Pedido;
 import br.com.api.aluguel.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,22 +16,22 @@ public class PedidoController {
     private PedidoService pedidoService;
 
     @GetMapping
-    public List<PedidoEntity> listar() {
-        return (List<PedidoEntity>) pedidoService.listar();
+    public List<Pedido> listar() {
+        return (List<Pedido>) pedidoService.listar();
     }
 
     @GetMapping("/{id}")
-    public Optional<PedidoEntity> buscarPorId(@PathVariable Long id) {
+    public Optional<Pedido> buscarPorId(@PathVariable Long id) {
         return pedidoService.buscarPorId(id);
     }
 
     @PostMapping
-    public PedidoEntity criar(@RequestBody PedidoEntity pedido) {
+    public Pedido criar(@RequestBody Pedido pedido) {
         return pedidoService.salvar(pedido);
     }
 
     @PutMapping("/{id}")
-    public PedidoEntity atualizar(@PathVariable Long id, @RequestBody PedidoEntity pedido) {
+    public Pedido atualizar(@PathVariable Long id, @RequestBody Pedido pedido) {
         pedido.setId(id);
         return pedidoService.salvar(pedido);
     }

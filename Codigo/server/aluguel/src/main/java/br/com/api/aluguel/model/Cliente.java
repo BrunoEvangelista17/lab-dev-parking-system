@@ -3,7 +3,7 @@ package br.com.api.aluguel.model;
 import jakarta.persistence.*;
 
 @Entity
-public class ClienteEntity {
+public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,7 +11,7 @@ public class ClienteEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private UserEntity user;
+    private User user;
 
     @Column(name = "rg")
     private String rg;
@@ -32,10 +32,10 @@ public class ClienteEntity {
     private String empregador;
 
     // Construtor padrão
-    public ClienteEntity() {}
+    public Cliente() {}
 
     // Construtor com parâmetros
-    public ClienteEntity(UserEntity user, String rg, String cpf, String nome, String endereco, String profissao, String empregador) {
+    public Cliente(User user, String rg, String cpf, String nome, String endereco, String profissao, String empregador) {
         this.user = user;
         this.rg = rg;
         this.cpf = cpf;
@@ -54,11 +54,11 @@ public class ClienteEntity {
         this.id = id;
     }
 
-    public UserEntity getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(UserEntity user) {
+    public void setUser(User user) {
         this.user = user;
     }
 

@@ -5,8 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "\"User\"")  // Nome da tabela com aspas duplas para manter a maiúscula
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tipo")
-public class UserEntity {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +18,10 @@ public class UserEntity {
     private String senha;
 
     // Construtor padrão
-    public UserEntity(){}
+    public User(){}
 
     // Construtor com parâmetros
-    public UserEntity(String login, String senha){
+    public User(String login, String senha){
         this.login = login;
         this.senha = senha;
     }

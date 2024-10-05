@@ -1,6 +1,9 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import '@mantine/core/styles.css';
+import Header from "@/components/applayout/header"; // Certifique-se que o caminho esteja correto
+import { Container, Group, Button, MantineProvider } from '@mantine/core';
+import Link from 'next/link';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,10 +24,28 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Metadados e links de fontes podem ser colocados aqui */}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <MantineProvider>
+          <Container>
+            <Group position="center" spacing="xl">
+              <Link href="/perfil_cliente">
+                <Button variant="light">Perfil do Cliente</Button>
+              </Link>
+              <Link href="/">
+                <Button variant="light">Catálogo de Veículos</Button>
+              </Link>
+              <Link href="/cadastro_cliente">
+                <Button variant="light">Cadastro de Cliente</Button>
+              </Link>
+            </Group>
+          </Container>
+          {children}
+        </MantineProvider>
       </body>
     </html>
   );

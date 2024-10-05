@@ -1,6 +1,6 @@
 package br.com.api.aluguel.controller;
 
-import br.com.api.aluguel.model.AgenteEntity;
+import br.com.api.aluguel.model.Agente;
 import br.com.api.aluguel.service.AgenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,22 +16,22 @@ public class AgenteController {
     private AgenteService agenteService;
 
     @GetMapping
-    public List<AgenteEntity> listar() {
-        return (List<AgenteEntity>) agenteService.listar();
+    public List<Agente> listar() {
+        return (List<Agente>) agenteService.listar();
     }
 
     @GetMapping("/{id}")
-    public Optional<AgenteEntity> buscarPorId(@PathVariable Long id) {
+    public Optional<Agente> buscarPorId(@PathVariable Long id) {
         return agenteService.buscarPorId(id);
     }
 
     @PostMapping
-    public AgenteEntity criar(@RequestBody AgenteEntity agente) {
+    public Agente criar(@RequestBody Agente agente) {
         return agenteService.salvar(agente);
     }
 
     @PutMapping("/{id}")
-    public AgenteEntity atualizar(@PathVariable Long id, @RequestBody AgenteEntity agente) {
+    public Agente atualizar(@PathVariable Long id, @RequestBody Agente agente) {
         agente.setId(id);
         return agenteService.salvar(agente);
     }
